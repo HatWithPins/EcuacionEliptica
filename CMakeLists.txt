@@ -12,10 +12,13 @@ endif()
 project ("EcuacionEliptica")
 
 # Add source to this project's executable.
-add_executable (EcuacionEliptica "EcuacionEliptica.cpp" "EcuacionEliptica.h")
+file(GLOB EcuacionEliptica_sources ./**.cpp)
+set(EcuacionEliptica ${EcuacionEliptica_sources})
+add_executable (EcuacionEliptica ${EcuacionEliptica_sources})
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET EcuacionEliptica PROPERTY CXX_STANDARD 20)
 endif()
 
-# TODO: Add tests and install targets if needed.
+add_custom_target(results ALL
+    COMMAND ${CMAKE_COMMAND} -E make_directory results)
