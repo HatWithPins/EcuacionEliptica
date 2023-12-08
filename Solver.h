@@ -10,6 +10,9 @@ double* defineA(bool isPolar, int N, int M);
 //Algoritmo SOR
 //SOR algotithm
 double* SOR(double* A, double* b, double* x, int N, int M);
+//Función para calcular la serie de Fourier.
+//Function for calculating Fourier series.
+double* fourier(bool isPolar, int N, int M);
 //Función para escribir los resultados.
 //Funtion to write results.
 void writeResults(bool isPolar, double* x, int N, int M);
