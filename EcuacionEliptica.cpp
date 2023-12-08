@@ -69,5 +69,20 @@ int main(int argc, char** argv)
 		return -1;
 	}
 
+	int sizeX = (N - 1) * (M - 1);
+	double* x = new double[sizeX];
+	for (int i = 0; i < sizeX; i++)
+	{
+		x[i] = 0.5;
+	}
+	double* polarB = defineB(true, boundaryBottom, boundaryArc, N, M);
+	double* polarA = defineA(true, N, M);
+	double* polarSolution = SOR(polarA, polarB, x, N, M);
+	double* cartesianB = defineB(false, boundaryBottom, boundaryArc, N, M);
+	double* cartesianA = defineA(false, N, M);
+	double* cartesianSolution = SOR(cartesianA, cartesianB, x, N, M);
+
+	writeResults(true, polarSolution, N, M);
+	writeResults(false, cartesianSolution, N, M);
 	return 0;
 }
