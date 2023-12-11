@@ -73,7 +73,7 @@ int main(int argc, char** argv)
 	double* x = new double[sizeX];
 	for (int i = 0; i < sizeX; i++)
 	{
-		x[i] = 0.5;
+		x[i] = 1.0;
 	}
 	double* polarB = defineB(true, boundaryBottom, boundaryArc, N, M);
 	double* polarA = defineA(true, N, M);
@@ -84,5 +84,6 @@ int main(int argc, char** argv)
 
 	writeResults(true, polarSolution, N, M);
 	writeResults(false, cartesianSolution, N, M);
+
 	return 0;
 }
